@@ -9,10 +9,14 @@ import userRouter from "./routes/userRoute.js";
 
 // app config
 const app = express();
+
 const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
-
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
 // middlewares
 app.use(express.json());
 app.use(cors());
